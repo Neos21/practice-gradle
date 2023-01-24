@@ -1,0 +1,29 @@
+// JavaFX 対応
+
+plugins {
+  // 既存の 'java' と 'application' はそのままに以下を追加
+  
+  // classpath を出力させて自動補完を効かせる
+  id 'eclipse'
+}
+
+dependencies {
+  // 既存の依存関係はそのままに以下を追加
+  
+  // JavaFX を追加する
+  compile files("${System.properties['java.home']}/lib/ext/jfxrt.jar")
+}
+
+// Java ファイルと同じ階層に FXML ファイルを置けるようにする
+sourceSets {
+  main {
+    java {
+      srcDir 'src'
+    }
+    resources {
+      srcDir 'src/main/java'
+    }
+    java.outputDir = file('bin')
+    output.resourcesDir = file('bin')
+  }
+}
