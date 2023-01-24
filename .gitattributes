@@ -1,0 +1,2 @@
+*.gradle linguist-detectable=true
+*.gradle linguist-language=Gradle
